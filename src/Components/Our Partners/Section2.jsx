@@ -91,14 +91,41 @@ export default function Section2({ section3Ref }) {
   };
 
   // Customer Login
-  const handleCustomerLogin = () => {
-    const { username, password } = customerLogin;
-    if (!username || !password) {
-      alert("Please fill all fields");
-      return;
+  // const handleCustomerLogin = () => {
+  //   const { username, password } = customerLogin;
+  //   if (!username || !password) {
+  //     alert("Please fill all fields");
+  //     return;
+  //   }
+  //   alert("Customer login successful!");
+  // };
+
+  // Customer Login
+const handleCustomerLogin = async (e) => {
+  e.preventDefault();
+  if (!customerLogin.username || !customerLogin.password) {
+    alert("Please enter username and password");
+    return;
+  }
+
+  try {
+    const res = await axios.post("http://localhost:5000/api/customers/login", customerLogin);
+
+    if (res.data.message === "Login successful") {
+      alert("Login successful!");
+      // Navigate to dashboard after a short delay
+      setTimeout(() => {
+        window.location.href = "http://localhost:4200/dashboard";
+      }, 300);
+    } else {
+      alert("Invalid credentials");
     }
-    alert("Customer login successful!");
-  };
+  } catch (err) {
+    console.error("Login failed:", err);
+    alert("Server error");
+  }
+};
+
 
   // Customer Signup
   const handleCustomerSignup = async (e) => {
