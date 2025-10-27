@@ -235,9 +235,9 @@ const handleCustomerLogin = async (e) => {
                   {/* <button onClick={handleCustomerLogin} className="bg-[#15803D] text-white px-5 py-2 rounded-md hover:bg-green-700 w-72">Login</button> */}
                   <button
   onClick={() => (window.location.href = "http://localhost:4200/dashboard")}
-  className="border border-[#15803D] text-[#15803D] px-5 py-2 rounded-md hover:bg-green-100 w-72"
+  className="bg-[#15803D] text-white px-5 py-2 rounded-md hover:bg-green-700 w-72"
 >
-  Signup
+  Login
 </button>
                   <p className="text-gray-500 text-sm">(Or)</p>
                   <button onClick={() => setStep("signup")} className="border border-[#15803D] text-[#15803D] px-5 py-2 rounded-md hover:bg-green-100 w-72">Signup</button>
