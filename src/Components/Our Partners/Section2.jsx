@@ -232,14 +232,22 @@ const handleCustomerLogin = async (e) => {
                   <h2 className="text-xl font-bold text-[#15803D] mb-2">Customer Login</h2>
                   <input type="text" placeholder="Username" value={customerLogin.username} onChange={e => setCustomerLogin({ ...customerLogin, username: e.target.value })} className={inputStyle} />
                   <input type="password" placeholder="Password" value={customerLogin.password} onChange={e => setCustomerLogin({ ...customerLogin, password: e.target.value })} className={inputStyle} />
-                  <button onClick={handleCustomerLogin} className="bg-[#15803D] text-white px-5 py-2 rounded-md hover:bg-green-700 w-72">Login</button>
-                  <p className="text-gray-500 text-sm">(Or)</p>
-<button
+                  {/* <button onClick={handleCustomerLogin} className="bg-[#15803D] text-white px-5 py-2 rounded-md hover:bg-green-700 w-72">Login</button> */}
+                  <button
   onClick={() => (window.location.href = "http://localhost:4200/dashboard")}
   className="border border-[#15803D] text-[#15803D] px-5 py-2 rounded-md hover:bg-green-100 w-72"
 >
   Signup
-</button>                </div>
+</button>
+                  <p className="text-gray-500 text-sm">(Or)</p>
+                  <button onClick={() => setStep("signup")} className="border border-[#15803D] text-[#15803D] px-5 py-2 rounded-md hover:bg-green-100 w-72">Signup</button>
+{/* <button
+  onClick={() => (window.location.href = "http://localhost:4200/dashboard")}
+  className="border border-[#15803D] text-[#15803D] px-5 py-2 rounded-md hover:bg-green-100 w-72"
+>
+  Signup
+</button>                */}
+ </div>
               ) : (
                 <form onSubmit={handleCustomerSignup} className="text-center flex flex-col items-center gap-4">
                   <h2 className="text-2xl font-semibold text-[#15803D]">Customer Signup</h2>
